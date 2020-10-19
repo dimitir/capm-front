@@ -1,0 +1,71 @@
+.appBar {
+    // box-shadow: 2px 3px 2px #ebeced;
+    background-color: white;
+    // height: 40px;
+    // margin-top: 3«px;
+}
+
+.toolBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.novLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 45%;
+    width: 100%;
+}
+
+.buttonLogin {
+    border-color: #bbbfc4;
+    border-radius: 20px;
+    color: #919599;
+    text-transform: capitalize;
+    &:hover {
+        color: #339af0;
+        cursor: pointer;
+        text-decoration: none;
+        border-color: #339af0;
+        background-color: white;
+    }
+}
+
+.link {
+    padding: 0 5px 0 5px;
+    color: #5b5c5e;
+    // color: #ededee;
+    // color: #50565d;
+    &:hover {
+        font-weight: 500;
+        cursor: pointer;
+        color: #339af0;
+        text-decoration: none;
+    }
+}
+
+.navbarLogin {
+    min-width: 30px;
+}
+
+.navbarBox {
+    padding: 20px 10px 10px 10px;
+    margin: auto;
+    margin-top: 120px;
+    max-width: 70%;
+    width: 100%;
+    border-radius: 20px;
+}
+.hikeNavbar {
+    display: "flex";
+    justify-content: "space-around";
+}
+.iconLabel {
+    margin-top: 5px;
+}
+
+.logo {
+    text-decoration: none;
+    color: inherit;
+}
