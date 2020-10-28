@@ -5,7 +5,6 @@ import hikeReducer, { InitialStateHike } from '../hikes/reducer';
 
 import { InitialStateModals, InitialStateUser } from './types';
 
-
 const rootReducer = combineReducers({
   modal: modalsReducer,
   user: authUserReducer,

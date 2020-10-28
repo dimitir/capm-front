@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux'
 import Box from '@material-ui/core/Box';
 import DatePicker from '../going/createHikes/_DatePicker';
 import {useForm, Controller} from 'react-hook-form';
@@ -174,19 +175,44 @@ const HikeList = () => {
     const [valueCountry, setValueCountry] = React.useState<string | null>(null);
     const [valueRegion, setValueRegion] = React.useState<string | null>(null);
     const [hikes, setHikes] = React.useState<any>('');
+    const user = useSelector((state: any) => state.user.user);
 
+
+    console.log('---------------user----------------------', user)
+    console.log('---------------user----------------------', user)
+    console.log('---------------user----------------------', user)
 
     const fetchData = async () => {
         const {data} = await axios({
             url: `${env.host}/hike/list`,
             method: 'post',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
         })
         setHikes(data);
         console.log(data);
     }
+
+     const testFetch = async () => {
+        console.log('user.jwtuser.jwtuser.jwtuser.jwt');
+        console.log(user.jwt);
+        const {data} = await axios({
+            method: 'post',
+            url: `${env.host}/auth/profile`,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            data: {token:  localStorage.getItem('token')},
+        })
+    }
+
+    // const items = { ...localStorage };
+
     useEffect(() => {
         (async () => {
             await fetchData();
+             await testFetch();
         })()
     }, []);
 
