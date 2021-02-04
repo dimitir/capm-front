@@ -1,7 +1,7 @@
 import { take, call, put } from 'redux-saga/effects';
 import actionsList from '../../storeConfig/dispatchActionsList';
 import env from '../../../env';
-import axios from 'axios';
+        import axios from 'axios';
 
 
 async function fetchAccessTokenFromFacebook(code: string) {

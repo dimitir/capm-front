@@ -1,9 +1,3 @@
-import watchAddHike from './watchAddHike';
-import watchHikesList from './watchHikesList';
-import watchQueryHike from './watchQueryHike';
+import watchAddHike from "./watchAddHikeSaga";
 
-export {
-    watchAddHike,
-    watchHikesList,
-    watchQueryHike
-}
+export { watchAddHike };

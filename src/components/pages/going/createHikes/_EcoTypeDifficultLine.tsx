@@ -26,7 +26,7 @@ function EcoTypeDifficultLine({ control, errors }: IEcoTypeDifficult) {
             <div className={classes.diffTypeEcoLine}>
 
                 <FormControlLabel className={classes.ecoCheck}
-                    label={<Typography variant="subtitle1" gutterBottom className={classes.ecoCheckLabel} >With eco activity</Typography>}
+                    label={<Typography variant="subtitle1" gutterBottom className={classes.ecoCheckLabel} >With eco</Typography>}
                     control={
                         <Controller
                             as={

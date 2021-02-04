@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37d9f6de-108a-4b21-b76c-2f7c63f0267d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/pages/hikes/Hikes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/hikes/Hikes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/storeConfig/rootReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/storeConfig/rootReducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../seatsnet_mobile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bank-bg-29" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -45,6 +43,7 @@
       <workItem from="1603445943020" duration="10343000" />
       <workItem from="1603701290778" duration="883000" />
       <workItem from="1603713910255" duration="4010000" />
+      <workItem from="1603906602888" duration="1562000" />
     </task>
     <servers />
   </component>
@@ -52,10 +51,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="686" y="215" key="FileChooserDialogImpl" timestamp="1603897512178">
+    <state x="686" y="215" key="FileChooserDialogImpl" timestamp="1603962545793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="686" y="215" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1603897512178" />
+    <state x="686" y="215" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1603962545793" />
     <state width="623" height="498" key="SwitcherDM" timestamp="1603796844325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

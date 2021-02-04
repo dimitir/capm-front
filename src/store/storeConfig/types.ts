@@ -1,7 +1,6 @@
-
 export interface ShowModalType {
-    type: string
-    modalType: string
+  type: string;
+  modalType: string;
 }
 /* 
 export interface ShowModalType {
@@ -13,42 +12,38 @@ export interface ShowModalType {
 } */
 
 export interface InitialStateModals {
-    showModal: boolean;
-    typeModal: string;
+  showModal: boolean;
+  typeModal: string;
 }
 
 export interface InitialStateUser {
-    user: any
+  user: any;
 }
 
 export interface CloseModalType {
-    type: string
+  type: string;
 }
-
 
 export interface TypeSendEmail {
-    type: string;
-    email: string;
+  type: string;
+  email: string;
 }
 
-
 export interface TypeSendCodeSocialAuth {
-    type: string;
-    code: string;
+  type: string;
+  code: string;
 }
 
 const initialState = {
-    showModal: false,
-    typeModal: ''
-}
-
+  showModal: false,
+  typeModal: "",
+};
 
 export interface TypeSetUserData {
-    type: string;
-    user: any;
+  type: string;
+  user: any;
 }
 
-
-
-
-export interface ActionTypeAuth extends TypeSetUserData, TypeSendEmail { };
+export type ActionTypeAuth = TypeSetUserData & TypeSendEmail;
+// export type ActionTypeAuth = TypeSetUserData | TypeSendEmail;
+// export interface ActionTypeAuth extends TypeSetUserData, TypeSendEmail { };
