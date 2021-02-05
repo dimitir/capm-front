@@ -5,7 +5,7 @@ import {
   TypedUseSelectorHook,
 } from "react-redux";
 import modalsReducer from "../modals/reducer";
-import authUserReducer from "../auth/reducer";
+import authUserReducer from "../user/reducer";
 import { TypeStateAxios } from "../axios/reducer";
 import hikeReducer, { InitialStateHike } from "../hikes/reducer";
 import axiosReducer from "../axios/reducer";
@@ -38,8 +38,6 @@ export interface RootStateType {
 // }
 
 export const useSelector: TypedUseSelectorHook<RootStateType> = _useSelector;
-
- 
 
 const rootReducer = combineReducers({
   modal: modalsReducer,

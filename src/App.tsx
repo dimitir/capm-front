@@ -1,19 +1,27 @@
 import { Component } from "react";
 import React from "react";
 import "./app.global.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ContainerNavbar from "./components/navbar/ContainerNavbar";
-import AuthCallback from "./components/authFront/AuthCallback";
-import ContainerHikeCreate from "./components/pages/hikes/createHikes/ContainerCreateHike";
-import ContainerModalsCreator from "./components/modals/ContainerModalsCreator";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { useSelector } from "./store/storeConfig/rootReducers";
+import ContainerNavbar from "./views/navbar/ContainerNavbar";
+import AuthCallback from "./views/auth/AuthCallback";
+import CreateHike from "./views/pages/hikes/createHikes/CreateHike";
+import ContainerModalsCreator from "./views/modals/ContainerModalsCreator";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ContainerHikes from "./components/pages/hikes/ContainerHikes";
-import ContainerHikeOne from "./components/pages/hikes/hikeOne/ContainerHikeOne";
-import Blogs from "./components/pages/blogs/Blogs";
-import MainLayout from "./components/layout/mainLayout/MainLayout";
+import ContainerHikes from "./views/pages/hikes/hikesList/ContainerHikes";
+import ContainerHikeOne from "./views/pages/hikes/hikeOne/ContainerHikeOne";
+import Blogs from "./views/pages/blogs/Blogs";
+import MainLayout from "./views/layout/mainLayout/MainLayout";
 
 const App = () => {
+  const user = useSelector((state) => state.user.user);
+  console.log("user", user);
+
   return (
     <>
       <CssBaseline />
@@ -22,9 +30,15 @@ const App = () => {
         <ContainerNavbar />
         <Switch>
           <MainLayout>
-            <Route component={ContainerHikes} path="/" exact />
+            <Route path="/" exact>
+              <Redirect to="/hikes" />
+            </Route>
+            <Route component={ContainerHikes} path="/hikes" exact />
             <Route component={ContainerHikeOne} path="/hike/:id" />
-            <Route component={ContainerHikeCreate} path="/going" exact />
+            <Route component={CreateHike} path="/hikes/new" exact />
+            {/* <Route path="/hikes/new" exact>
+              {user.auth ? <ContainerHikeCreate /> : <Redirect to="/hikes" />}
+            </Route> */}
             <Route component={Blogs} path="/blog" exact />
             <Route component={AuthCallback} />
           </MainLayout>

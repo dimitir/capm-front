@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
-import rootSaga from "./store/Saga/sagas";
+import rootSaga from "./saga/sagas";
 import { StylesProvider } from "@material-ui/core/styles";
 import App from "./App";
 import reducer from "./store/storeConfig/rootReducers";
