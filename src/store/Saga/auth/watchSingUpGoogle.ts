@@ -38,8 +38,8 @@ async function fetchToBackToSetJWT(tokenId: string) {
     };
 
     let response, user, text;
-    try { response = await fetch(`${env.host}/auth/google`, options) }
-    catch (err) { new Error('fetch auth singup is failed'); }
+    try { response = await fetch(`${env.host}/user/google`, options) }
+    catch (err) { new Error('fetch auth sing up is failed'); }
 
     if (response) {
         try { text = await response.text(); }

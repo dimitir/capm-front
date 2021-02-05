@@ -24,7 +24,7 @@ import TeamInformation from "./_TeamInformation";
 import EcoTypeDifficultLine from "./_EcoTypeDifficultLine";
 import IsOpenEvent from "./_OpenEvent";
 import SuccessDialog from "./_SuccessDialog";
-import { push } from "connected-react-router";
+import { Interface_Hike } from "../types";
 
 const CreateHike: React.FC<TypeProps_CreateHike> = ({
   addHike,
@@ -47,12 +47,11 @@ const CreateHike: React.FC<TypeProps_CreateHike> = ({
     validationSchema: schema,
   });
 
-
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // const [successDialog, setSuccessDialog] = useState<boolean>(false);
-  const [editorDescription, setEditorDescription] = useState("");
-  const [editorTeam, setEditorTeam] = useState("");
+  const [editorDescription, setEditorDescription] = useState<string | null>("");
+  const [editorTeam, setEditorTeam] = useState<string | "">("");
   const [valueCountry, setValueCountry] = React.useState<string | null>(null);
   const [valueRegion, setValueRegion] = React.useState<string | null>(null);
 
@@ -78,7 +77,7 @@ const dispatch = useDispatch();
       region,
       openEvent,
     }) => {
-      const hike = {
+      const hike: Interface_Hike = {
         name: name,
         start: startDate,
         finish: finishDate,
@@ -92,8 +91,8 @@ const dispatch = useDispatch();
         region: valueRegion,
         teamInfo: editorTeam,
         leaderEmail: user.email,
+        authorId: user._id,
       };
-      console.log(hike);
       const result = addHike(hike);
     }
   );
@@ -101,6 +100,12 @@ const dispatch = useDispatch();
   const classes = useStyles();
 
   const paperElevation = 0;
+
+  if ("" == null) {
+    console.log(" == null");
+  } else {
+    console.log("!== null");
+  }
 
   return (
     <>

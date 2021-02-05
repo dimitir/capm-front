@@ -1,10 +1,10 @@
 import dispatchAction from "../storeConfig/dispatchActionsList";
-import { ActionTypeHike, Ihike } from "./types";
+import { ActionTypeHike, Interface_Hike } from "./types";
 
 export interface InitialStateHike {
   added: boolean;
-  hikes: [Ihike];
-  hike: Ihike;
+  hikes: [Interface_Hike];
+  hike: Interface_Hike;
 }
 
 const initialState = {

@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import { useSelector } from "../../../store/storeConfig/rootReducers";
 
 import Box from "@material-ui/core/Box";
-import DatePicker from "../going/createHikes/_DatePicker";
+import DatePicker from "./createHikes/_DatePicker";
 import { useForm, Controller } from "react-hook-form";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Paper, Grid } from "@material-ui/core";
-import RegionCountry from "../going/createHikes/_RegionCountry";
-import EcoTypeDifficult from "../going/createHikes/_EcoTypeDifficultLine";
+import RegionCountry from "./createHikes/_RegionCountry";
+import EcoTypeDifficult from "./createHikes/_EcoTypeDifficultLine";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 // import Link from '@material-ui/core/Link';
@@ -16,28 +16,14 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { TypeProps_HikeList } from "./ContainerHikes";
-import { Ihike } from "../../../store/hikes/types";
+// import { Interface_Hike } from "../../../store/hikes/types";
+import { Interface_Hike } from "./types";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "../_icons/hikes/SearchIcon";
 import Pagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import env from "../../../env";
-
-export interface TypeHike {
-  name: String;
-  start: Date;
-  finish: Date;
-  subscription: String;
-  discription: any;
-  openEvent: Boolean;
-  teamInfo: any;
-  eco: Boolean;
-  difficulty: String;
-  typeHike: String;
-  region: String;
-  country: String;
-  leaderEmail: String;
-}
+import AddIcon from "@material-ui/icons/Add";
 
 const hikeListStyle = () =>
   createStyles({
@@ -100,9 +86,9 @@ const hikeListStyle = () =>
       paddingLeft: "10px",
       background: "#fffbfe",
       // height: '200px',
-      textDecaration: "none",
+      textDeclaration: "none",
       "&:hover": {
-        textDecaration: "none",
+        textDeclaration: "none",
       },
     },
 
@@ -116,7 +102,7 @@ const hikeListStyle = () =>
     nameHike: {
       marginTop: "5px",
       "&:hover": {
-        textDecaration: "none",
+        textDeclaration: "none",
       },
     },
     footerCard: {
@@ -140,7 +126,7 @@ const hikeListStyle = () =>
       marginBottom: "50px",
     },
     link: {
-      textDecaration: "inherit",
+      textDeclaration: "inherit",
       color: "inherit",
     },
   });
@@ -166,12 +152,11 @@ const dateFormat = (start: any, finish: any) => {
   } else return null;
 };
 
-
 const HikeList = () => {
   const classes = useStyles();
   const [valueCountry, setValueCountry] = React.useState<string | null>(null);
   const [valueRegion, setValueRegion] = React.useState<string | null>(null);
-  const [hikes, setHikes] = React.useState<any>("");
+  const [hikes, setHikes] = React.useState<Interface_Hike[] | "">("");
   const user = useSelector((state) => state.user.user);
   const axios = useSelector((state) => state.axios.axios);
 
@@ -183,7 +168,7 @@ const HikeList = () => {
   const testFetch = async () => {
     const { data } = await axios({
       method: "post",
-      url: `${env.host}/auth/profile`,
+      url: `${env.host}/user/profile`,
       headers: {
         // "Access-Control-Allow-Origin": "*",
       },
@@ -229,7 +214,7 @@ const HikeList = () => {
     const listHike = hikes.slice().reverse();
     hikeList = listHike
       .slice(gap.from, gap.to)
-      .map((hike: Ihike, index: number) => {
+      .map((hike: Interface_Hike, index: number) => {
         return (
           <Card className={classes.card} elevation={0} key={index}>
             <CardContent>
@@ -314,7 +299,21 @@ const HikeList = () => {
         </div>
       </form>
 
-      <div className={classes.hikesList}>{hikes ? hikeList : ""}</div>
+      <div className={classes.hikesList}>
+        <Card className={classes.card} elevation={0} key={"hikeAdd"}>
+          <CardContent>
+            <Typography
+              variant="h3"
+              align="center"
+              className={classes.nameHike}
+            >
+              <AddIcon style={{ fontSize: 60, marginBottom: "-15px" }} />
+              {"new hike"}
+            </Typography>
+          </CardContent>
+        </Card>
+        {hikes ? hikeList : ""}
+      </div>
 
       <Grid container justify="center" className={classes.pagination}>
         <Pagination

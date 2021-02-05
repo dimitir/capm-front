@@ -19,11 +19,17 @@ import HikesIcon from "../pages/_icons/navbar/HikesIcon";
 import GoingIcon from "../pages/_icons/navbar/GoingIcon";
 import TrailsIcon from "../pages/_icons/navbar/TrailsIcon";
 import BlogIcon from "../pages/_icons/navbar/BlogIcon";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  withStyles,
+  createStyles,
+  Theme,
+} from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import Paper from "@material-ui/core/Paper";
 import { NavLink } from "react-router-dom";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const widthIcon = "25";
 interface T_Icon {
@@ -68,13 +74,21 @@ const pages: TypePage[] = [
   },
 ];
 
+const LightTooltip = withStyles((theme: Theme) => ({
+  tooltip: {
+    backgroundColor: theme.palette.common.white,
+    color: "rgba(0, 0, 0, 0.87)",
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}))(Tooltip);
+
 const Navbar: React.FC<PropTypes_Navbar> = ({
   showModal,
   user,
   userLogout,
 }: PropTypes_Navbar) => {
   const iconObj = { icon: HikesIcon };
-
   const history = useHistory();
 
   const handleChangePage = (path: string) => {
@@ -100,14 +114,19 @@ const Navbar: React.FC<PropTypes_Navbar> = ({
           <BottomNavigation className={style.novLinks}>
             {pages &&
               pages.map((page: TypePage) => (
-                <BottomNavigationAction
-                  onClick={() => {
-                    handleChangePage(page.path);
-                  }}
+                <LightTooltip
                   key={page.name}
-                  value={page.name}
-                  icon={<page.icon width={page.iconWidth} />}
-                />
+                  title={page.name}
+                  enterDelay={500}
+                >
+                  <BottomNavigationAction
+                    onClick={() => {
+                      handleChangePage(page.path);
+                    }}
+                    value={page.name}
+                    icon={<page.icon width={page.iconWidth} />}
+                  />
+                </LightTooltip>
               ))}
           </BottomNavigation>
 

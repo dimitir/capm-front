@@ -1,10 +1,10 @@
-export interface Ihike {
+export interface Interface_Hike {
   _id: string;
   name: String;
   start: Date;
   finish: Date;
   subscription: String;
-  discription: any;
+  description: any;
   openEvent: Boolean;
   teamInfo: any;
   eco: Boolean;
@@ -13,16 +13,17 @@ export interface Ihike {
   region: String;
   country: String;
   leaderEmail: String;
+  authorId: string;
 }
 
 export interface TypeAddHike {
   type: string;
-  hike: Ihike;
+  hike: Interface_Hike;
 }
 
 export interface TypeHikesList {
   type: string;
-  hikes: [Ihike];
+  hikes: [Interface_Hike];
 }
 
 // export interface ActionTypeAuth extends TypeSetUserData, TypeSendEmail { };
@@ -33,7 +34,7 @@ export interface TypeAdded {
 
 export interface TypeSetHike {
   type: string;
-  hike: Ihike;
+  hike: Interface_Hike;
 }
 
 // export interface ActionTypeHike extends TypeAdded, TypeHikesList, TypeSetHike {};

@@ -2,9 +2,7 @@ import { call, take, put, select, delay } from "redux-saga/effects";
 import actionsList from "../../storeConfig/dispatchActionsList";
 import { hikesApi, pageRouts } from "../../../constants";
 import { AxiosInstance } from "axios";
-// import { push } from "connected-react-router";
 async function fetchAddHike(hike: any, axios: AxiosInstance) {
-  console.log("fetch");
   const { data } = await axios.post(hikesApi.ADD_HIKE, { hike });
   return data;
 }

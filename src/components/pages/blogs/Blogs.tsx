@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Box from "@material-ui/core/Box";
-import DatePicker from "../going/createHikes/_DatePicker";
+import DatePicker from "../hikes/createHikes/_DatePicker";
 import { useForm, Controller } from "react-hook-form";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Paper, Grid } from "@material-ui/core";
-import RegionCountry from "../going/createHikes/_RegionCountry";
-import EcoTypeDifficult from "../going/createHikes/_EcoTypeDifficultLine";
+import RegionCountry from "../hikes/createHikes/_RegionCountry";
+import EcoTypeDifficult from "../hikes/createHikes/_EcoTypeDifficultLine";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 // import Link from '@material-ui/core/Link';

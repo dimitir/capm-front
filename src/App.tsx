@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ContainerNavbar from "./components/navbar/ContainerNavbar";
 import AuthCallback from "./components/authFront/AuthCallback";
-import ContainerHikeCreate from "./components/pages/going/createHikes/ContainerCreateHike";
+import ContainerHikeCreate from "./components/pages/hikes/createHikes/ContainerCreateHike";
 import ContainerModalsCreator from "./components/modals/ContainerModalsCreator";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ContainerHikes from "./components/pages/hikes/ContainerHikes";
