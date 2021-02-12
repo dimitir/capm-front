@@ -12,11 +12,12 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 // import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "../../../../store/storeConfig/rootReducers";
-import SearchIcon from "../../_icons/hikes/SearchIcon";
-import DatePicker from "../components/hike/_DatePicker";
-import EcoTypeDifficult from "../components/hike/_EcoTypeDifficultLine";
-import RegionCountry from "../components/hike/_RegionCountry";
+import { useSelector } from "../../../store/storeConfig/rootReducers";
+import SearchIcon from "../_icons/hikes/SearchIcon";
+import DatePicker from "./components/hike/_DatePicker";
+import EcoTypeDifficult from "./components/hike/_EcoTypeDifficultLine";
+import RegionCountry from "./components/hike/_RegionCountry";
+import FilterHikes from "./components/filterHikes/FilterHikes";
 // import { Interface_Hike } from "../../../store/hikes/types";
 import { Interface_Hike } from "./types";
 
@@ -217,7 +218,7 @@ const HikeList = () => {
     from: (page - 1) * itemOnPage,
     to: (page - 1) * itemOnPage + itemOnPage,
   });
-  const gap = paginationGap(5);
+  const gap = paginationGap(10);
 
   let hikeList;
   if (hikes) {
@@ -273,7 +274,15 @@ const HikeList = () => {
         Hikes
       </Typography>
 
-     
+      <FilterHikes
+        control={control}
+        errors={errors}
+        setValue={setValue}
+        valueCountry={valueCountry}
+        valueRegion={valueRegion}
+        setValueCountry={setValueCountry}
+        setValueRegion={setValueRegion}
+      />
 
       <div className={classes.hikesList}>
         <Card

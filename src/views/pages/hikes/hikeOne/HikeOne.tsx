@@ -6,7 +6,7 @@ import { Typography, Grid, Box } from "@material-ui/core";
 // import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from "@material-ui/core";
 import env from "../../../../env";
-import { dateFormat } from "../hikesList/Hikes";
+import { dateFormat } from "../Hikes";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ReactHtmlParser, {
   processNodes,
